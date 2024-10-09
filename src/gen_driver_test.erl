@@ -29,7 +29,6 @@
 %% ----------------------------------------------------------------------------
 
 % Path and name of the driver.
--define(DRV_PATH, "../priv").
 -define(DRV_NAME, "test").
 
 % Commands to be executed by the driver.
@@ -46,7 +45,8 @@
 -spec start_link()
   -> { ok, pid() } | { error, any() }.
 start_link() ->
-  gen_driver:start_link(?DRV_PATH, ?DRV_NAME).
+  DrvPath = filename:join(code:lib_dir(gen_driver), "priv"),
+  gen_driver:start_link(DrvPath, ?DRV_NAME).
 
 % As the generic server for drivers may not be part of a supervision tree, we
 % provide a simple method to stop it.
@@ -75,3 +75,5 @@ ping(Pid) ->
   -> { ok, proplists:proplist() } | { error, atom() }.
 stats(Pid) ->
   gen_server:call(Pid, { port, ?CMD_STATS }).
+
+% vim: ts=2 sts=2 sw=2 et

@@ -38,4 +38,4 @@ basic_test() ->
   { ok, Pid } = gen_driver_test:start_link(),
   { ok, Sum } = gen_driver_test:sum(Pid, [1, 2, 97]),
   ?assertEqual(100.0, Sum),
-  gen_driver_test:stop(Driver).
+  gen_driver_test:stop(Pid).
