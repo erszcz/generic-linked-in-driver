@@ -16,3 +16,10 @@
 
 # Ignore eunit test folder
 /.eunit/*
+
+# Ignore Rebar3 _build dir
+_build
+
+# Ignore C dependency and intermediate object files
+c_src/*.d
+c_src/*.o
