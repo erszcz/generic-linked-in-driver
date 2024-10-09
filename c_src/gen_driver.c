@@ -180,8 +180,8 @@ ready(ErlDrvData drv_data, ErlDrvThreadData thread_data) {
   gd_ptr_t *ptr = (void *)thread_data;
 
   /* Check, if we reached the end of the request buffer */
-  if (!error_occurred(ptr->res) && ptr->req->len != ptr->req->index)
-    error_set(ptr->res, GD_ERR_DECODE);
+  //if (!error_occurred(ptr->res) && ptr->req->len != ptr->req->index)
+  //  error_set(ptr->res, GD_ERR_DECODE);
 
   /* Check for error on synchronous request, output data */
   if (ptr->req->syn) {
